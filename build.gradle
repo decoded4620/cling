@@ -22,20 +22,20 @@ subprojects {
   
   dependencies {
   
-  compile(group: 'com.google.android', name: 'android', version:'4.1.1.4') {
-exclude(module: 'xpp3')
-exclude(module: 'opengl-api')
-exclude(module: 'json')
-exclude(module: 'xmlParserAPIs')
-exclude(module: 'commons-logging')
-    }
+  	compile(group: 'com.google.android', name: 'android', version:'4.1.1.4') {
+		exclude(module: 'xpp3')
+		exclude(module: 'opengl-api')
+		exclude(module: 'json')
+		exclude(module: 'xmlParserAPIs')
+		exclude(module: 'commons-logging')
+	}
     
     testCompile(group: 'org.testng', name: 'testng', version:'6.8.21') {
-exclude(module: 'junit')
+		exclude(module: 'junit')
     }
 }
 
-  test.useTestNG()
+test.useTestNG()
 	test{
 	 	testLogging {
 	        // Show that tests are run in the command-line output
