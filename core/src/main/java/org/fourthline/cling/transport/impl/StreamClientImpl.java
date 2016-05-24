@@ -111,10 +111,13 @@ public class StreamClientImpl implements StreamClient {
                     ).newInstance()
                 );
             } catch (Throwable t) {
-                throw new InitializationException(
-                    "Failed to set modified URLStreamHandlerFactory in this environment."
-                        + " Can't use bundled default client based on HTTPURLConnection, see manual."
-                );
+                    //if this is a Spring Framework application, or another web based app wherein
+                    // the UrlStreamHandler factory is already set, use it. Otherwise, the FixedSunUrlStreamHandler should be sufficient.
+                  
+//                throw new InitializationException(
+//                    "Failed to set modified URLStreamHandlerFactory in this environment."
+//                        + " Can't use bundled default client based on HTTPURLConnection, see manual."
+//                );
             }
             System.setProperty(HACK_STREAM_HANDLER_SYSTEM_PROPERTY, "alreadyWorkedAroundTheEvilJDK");
         }
